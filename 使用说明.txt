@@ -1,0 +1,70 @@
+四分支图像篡改检测系统 - 使用说明
+=====================================
+
+【快速启动方式】
+
+方式一: 双击启动 (推荐)
+    直接双击 "启动检测.bat" 文件
+    → 按提示输入图片路径
+    → 自动运行检测
+
+方式二: 命令行启动
+    打开终端，进入项目目录，运行:
+    python run_detection.py
+
+方式三: 直接运行 (适合脚本调用)
+    python predict_all.py "图片完整路径"
+
+
+【输入图片路径方式】
+
+1. 直接输入路径:
+   D:\桌面\test.jpg
+
+2. 拖拽方式 (Windows):
+   直接把图片文件拖拽到命令行窗口，路径会自动填入
+
+
+【输出结果位置】
+
+检测结果保存在 outputs 文件夹中:
+  outputs\{图片名}_Report\
+
+包含文件:
+  - 1_CNN结果.png
+  - 2_ViT结果.png
+  - 3_ELA_SRM结果.png
+  - 4_Color结果.png
+  - 5_融合结果.png
+  - 6_六宫格对比图.png
+  - 7_叠加效果图.png
+  - 综合检测报告.txt
+
+
+【模型文件位置】
+
+models/
+  - cnn_best.pth (CNN分支模型)
+  - vit_best.pth (ViT分支模型)
+  - ela_srm_best.pth (ELA+SRM分支模型)
+  - color_best.pth (Color分支模型)
+
+
+【注意事项】
+
+1. 支持的图片格式: JPG, JPEG, PNG, BMP, TIFF, WEBP
+2. 首次运行时会自动清理该图片的旧检测记录
+3. 检测需要 GPU 支持，确保 CUDA 已安装
+4. 如遇到编码问题，确保终端使用 UTF-8 编码
+
+
+【故障排查】
+
+Q: 提示 "未检测到 Python"
+A: 请安装 Python 3.8+ 并添加到系统 PATH
+
+Q: 提示 "未找到模型文件"
+A: 确保 models/ 文件夹中有对应的 .pth 模型文件
+
+Q: 中文显示乱码
+A: 在 Windows PowerShell 中运行: chcp 65001

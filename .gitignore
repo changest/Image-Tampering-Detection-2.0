@@ -1,0 +1,15 @@
+# 忽略大文件和临时数据
+coco_data/
+data/
+data_coco/
+element/
+models/*.pth
+outputs/
+results/
+*.zip
+*.rar
+__pycache__/
+*.pyc
+.DS_Store
+*.log
+training_log.txt
